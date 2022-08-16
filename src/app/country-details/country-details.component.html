@@ -1,0 +1,40 @@
+
+<div>
+    <div *ngIf="currentCountry.id" class="edit-form">
+      <h4>Tutorial</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentCountry.name"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Status</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentCountry.status"
+            name="description"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Active:</strong></label>
+          {{ currentCountry.active ? "Active" : "In Active" }}
+        </div>
+      </form>
+      
+  
+      
+  
+    <div *ngIf="!currentCountry.id">
+      <br />
+      <p>Cannot access this Country...</p>
+    </div>
+  </div>

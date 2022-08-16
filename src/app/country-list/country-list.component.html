@@ -1,0 +1,48 @@
+<p>List of Countries available</p>
+<div class="list row">
+    <div class="col-md-8">
+      git
+    </div>
+    <div class="col-md-6">
+      <h4>Countries List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let country of countries; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCountry(country, i)"
+        >
+          {{ country.name }} 
+       
+        </li>
+      </ul>
+  
+      
+    </div>
+    <div class="col-md-6">
+      <h4>Country Details</h4>
+      <div *ngIf="currentCountry.id">
+       
+        <div>
+          <label><strong>Title:</strong></label> {{ currentCountry.name }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentCountry.status }}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentCountry.active ? "Active" : "In Active" }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/tutorials/{{ currentCountry.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentCountry">
+        <br />
+        <p>Please click on a Country...</p>
+      </div>
+    </div>
+  </div>
